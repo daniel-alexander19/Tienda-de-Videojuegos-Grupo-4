@@ -153,7 +153,7 @@ La herencia se utiliza para representar especialización entre clases. En el mod
 ## 🖼️ Diagrama del Sistema
 
 El diagrama fue elaborado en draw.io (diagrams.net).  
-
+<img width="1300" height="1400" alt="Tienda de VideoJuegos drawio (2)" src="https://github.com/user-attachments/assets/9387fb8a-a1dc-49d1-be45-018fe4479627" />
 
 ---
 
