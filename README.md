@@ -15,6 +15,38 @@ Diseñar un modelo estructurado que permita organizar y gestionar la informació
 ---
 
 ## 🧱 Estructura del Sistema
+src/
+└── com/
+    └── tiendavideojuegos/
+        ├── interfaces/
+        │   ├── Mostrable.java
+        │   ├── Pago.java
+        │   └── Validable.java
+        ├── modelo/
+        │   ├── Producto.java  (Clase abstracta)
+        │   ├── Carrito.java
+        │   ├── Categoria.java
+        │   ├── Entrega.java
+        │   ├── Envio.java
+        │   ├── Membresia.java
+        │   ├── Nequi.java
+        │   ├── Paypal.java
+        │   ├── Plataforma.java
+        │   ├── PlataformaJuegos.java
+        │   ├── PSE.java
+        │   ├── RecogeEnTienda.java
+        │   ├── Tarjeta.java
+        │   ├── Usuario.java
+        │   ├── VideoJuegoDigital.java
+        │   └── VideoJuegoFisico.java
+        ├── servicio/
+        │   ├── GeneradorFactura.java
+        │   ├── GestorCarrito.java
+        │   ├── GestorEntregas.java
+        │   ├── GestorPagos.java
+        │   ├── GestorProductos.java
+        │   └── GestorUsuarios.java
+        └── Main.java
 
 ### 🔹 Usuario
 Representa al cliente del sistema.
@@ -121,7 +153,7 @@ La herencia se utiliza para representar especialización entre clases. En el mod
 ## 🖼️ Diagrama del Sistema
 
 El diagrama fue elaborado en draw.io (diagrams.net).  
-Se recomienda adjuntar la imagen exportada del diagrama para una mejor comprensión visual del sistema.
+
 
 ---
 
