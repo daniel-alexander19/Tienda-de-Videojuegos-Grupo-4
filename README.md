@@ -157,6 +157,63 @@ El diagrama fue elaborado en draw.io (diagrams.net).
 
 ---
 
+## ⚙️ Aplicación de Principios SOLID
+
+### 🔴 S — Single Responsibility Principle
+**¿Dónde se aplica?
+En el paquete servicio, donde cada clase cumple una función específica dentro del sistema.
+- 'GestorProductos': administra el catálogo de videojuegos.
+- 'GestorUsuarios': gestiona el registro e inicio de sesión.
+- 'GestorPagos': procesa los métodos de pago.
+- 'GestorCarrito': administra los productos agregados al carrito.
+- 'GestorEntregas': procesa las entregas.
+
+**Código:**
+```java
+public class GestorUsuarios {
+
+    private ArrayList<Usuario> usuarios = new ArrayList<>();
+
+    // =========================
+    // REGISTRAR USUARIO
+    // =========================
+    public void registrarUsuario(Usuario u) {
+        usuarios.add(u);
+        System.out.println("✅ Usuario registrado correctamente");
+}
+
+    // =========================
+    // INICIAR SESIÓN
+    // =========================
+    public Usuario iniciarSesion(String email, String contraseña) {...}
+```
+### 🟠 O — Open/Closed Principle
+
+***¿Dónde se aplica?
+En el sistema de pagos, ya que el sistema está abierto para agregar nuevos métodos de pago sin modificar el código existente.
+- Pago actúa como abstracción.
+- Nequi, PayPal, Tarjeta y PSE extienden el comportamiento.
+
+**Código:**
+````
+public class Nequi implements Pago {
+
+    @Override
+    public void procesarPago(double monto) {...}
+}
+````
+
+### 🟡 L — Liskov Substitution Principle
+
+***¿Dónde se aplica?
+Las clases hijas pueden reemplazar a su clase padre sin afectar el funcionamiento del sistema.
+- VideoJuegoDigital
+- VideoJuegoFisico
+
+**Código:**
+````
+
+````
 ## ⚙️ Tecnologías Utilizadas
 
 - Draw.io (diagrams.net)  
