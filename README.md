@@ -285,7 +285,8 @@ double desc = total * usuarioLogueado.getMembresia().getDescuento();
 
 - Draw.io (diagrams.net)  
 - UML  
-
+- IntelliJ IDEA community Edition 2024.3.7
+ 
 ---
 
 ## 🎯 Conclusiones
