@@ -206,19 +206,93 @@ public class Nequi implements Pago {
 ### 🟡 L — Liskov Substitution Principle
 
 ***¿Dónde se aplica?
-Las clases hijas pueden reemplazar a su clase padre sin afectar el funcionamiento del sistema.
-- VideoJuegoDigital
-- VideoJuegoFisico
+Producto, VideoJuegoDigital y VideoJuegoFisico.
+Los videojuegos digitales y físicos son intercambiables como Producto.
 
 **Código:**
 ````
+gestorProductos.agregar(new VideoJuegoDigital(1, "EA FC 26", 250000, 1200, Categoria.DEPORTES));
+gestorProductos.agregar(new VideoJuegoFisico(2, "God of War Ragnarok", 300000, 10, Categoria.ACCION));
+gestorProductos.agregar(new VideoJuegoDigital(3, "Minecraft", 120000, 800, Categoria.AVENTURA));
+gestorProductos.agregar(new VideoJuegoFisico(4, "Elden Ring", 280000, 5, Categoria.RPG));
+````
+
+### 🟢 I — Interface Segregation Principle
+
+***¿Dónde se aplica?
+El sistema utiliza interfaces específicas para evitar obligar a las clases a implementar métodos innecesarios.
+- Pago
+- Mostrable
+- Validable
+
+**Código:**
+````
+public class VideoJuegoDigital extends Producto {
+
+    private int tamanoMB;
+
+    public VideoJuegoDigital(int id, String nombre, double precio,
+                             int tamanoMB, Categoria categoria) {...}
+
+    public int getTamanoMB() {...}
+
+    @Override
+    public void mostrarInfo() {
+
+        System.out.println("\n🎮 VIDEOJUEGO DIGITAL");
+        System.out.println("ID: " + getId());
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Precio: $" + getPrecio());
+        System.out.println("Categoría: " + getCategoria());
+        System.out.println("Tamaño: " + tamanoMB + " MB");
+    }
+    @Override
+    public String mostrarInformacion() {
+        return "";
+    }
+}
 
 ````
+### 🔵 D — Dependency Inversion Principle 
+
+***¿Dónde se aplica?
+Las clases dependen de abstracciones y no de implementaciones concretas.
+GestorPagos trabaja con la interfaz Pago y no directamente con Nequi, PayPal o Tarjeta.
+
+**Código:**
+````
+public class GestorPagos {
+
+    public void procesarPago(Pago metodo, double monto) {
+        metodo.procesarPago(monto);
+    }
+}
+````
+````
+double total = gestorCarrito.calcularTotal();
+
+double desc = total * usuarioLogueado.getMembresia().getDescuento();
+                    double finalTotal = total - desc;
+
+                    System.out.println("Total final: " + finalTotal);
+
+                    System.out.println("Pago aprobado (simulado)");
+
+````
+---
+
 ## ⚙️ Tecnologías Utilizadas
 
 - Draw.io (diagrams.net)  
 - UML  
 
 ---
+
+## 🎯 Conclusiones
+- La aplicación de los principios SOLID permitió desarrollar un código más organizado y fácil de comprender, especialmente al separar responsabilidades en clases como GestorProductos, GestorUsuarios y GestorPagos. Esto facilitó el mantenimiento y la escalabilidad del sistema a medida que se agregaban nuevas funcionalidades.
+
+- El principio OCP permitió extender el sistema sin modificar gran parte del código existente, por ejemplo al agregar diferentes métodos de pago y nuevas categorías de videojuegos. Esto ayudó a entender la importancia de diseñar aplicaciones preparadas para futuras mejoras.
+
+- El proyecto permitió fortalecer conocimientos en Programación Orientada a Objetos, aplicando conceptos como encapsulamiento, herencia, abstracción y polimorfismo en un caso práctico similar a una tienda virtual real. Además, se adquirió experiencia en organización modular del código y diseño de aplicaciones escalables.
 
 *Proyecto de Programación y Diseño Orientado a Objetos — Corhuila 2026*
